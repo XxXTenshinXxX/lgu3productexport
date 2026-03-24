@@ -72,7 +72,7 @@
         }
 
         .republic {
-            font-size: 11px;
+            font-size: 14px;
             margin-top: 8px;
             border-top: 1px solid rgba(255,255,255,0.3);
             display: inline-block;
@@ -117,9 +117,10 @@
         /* Options Row */
         .options {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 20px;
+            font-weight: bolder;
             font-size: 12px;
         }
 
@@ -222,16 +223,6 @@
             color: #003366;
         }
 
-        /* Footer */
-        .footer {
-            background: #f8f9fa;
-            padding: 12px;
-            text-align: center;
-            font-size: 11px;
-            color: #666;
-            border-top: 1px solid #dee2e6;
-        }
-
         /* Simple responsive */
         @media (max-width: 480px) {
             .form-body {
@@ -245,12 +236,11 @@
 </head>
 <body>
     <div class="gov-bar">
-        REPUBLIC OF THE PHILIPPINES | Local Government Unit
+        REPUBLIC OF THE PHILIPPINES | Local Government Unit 3: Local Product & Export Development
     </div>
 
     <div class="container">
         <div class="header">
-            <div class="logo">🏛️</div>
             <h1>LGU 3</h1>
             <h2>Local Product & Export Development</h2>
             <div class="republic">✧ OFFICIAL LOGIN PORTAL ✧</div>
@@ -271,27 +261,16 @@
                 </div>
 
                 <div class="options">
-                    <label class="checkbox">
-                        <input type="checkbox" id="remember"> Remember me
-                    </label>
-                    <a href="#" id="forgotBtn" class="forgot">Forgot password?</a>
+                    <a href="forgot-password.php" class="forgot">Forgot password?</a>
                 </div>
 
                 <button type="submit" class="login-btn">SIGN IN</button>
 
                 <!-- Register Link - Don't have an account -->
-                <div class="register-link">
-                    <p>Don't have an account? <a href="register.html" id="registerLink">Register here</a></p>
-                </div>
-
-                <div class="demo-box">
-                    📋 <strong>Demo Access:</strong> username: <strong>lgu3</strong> | password: <strong>export2024</strong>
+                <div class="register-link"><br>
+                    <p>Don't have an account? <a href="register.php" id="registerLink">Register here</a></p>
                 </div>
             </form>
-        </div>
-
-        <div class="footer">
-            LGU 3 - Local Product & Export Development Office
         </div>
     </div>
 
@@ -301,7 +280,6 @@
         const passwordInput = document.getElementById('password');
         const messageBox = document.getElementById('messageBox');
         const rememberCheck = document.getElementById('remember');
-        const forgotBtn = document.getElementById('forgotBtn');
         const registerLink = document.getElementById('registerLink');
 
         function showMessage(text, isError = true) {
@@ -402,12 +380,6 @@
                 passwordInput.value = '';
                 passwordInput.focus();
             }
-        });
-        
-        // Forgot password
-        forgotBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showMessage('Please contact LGU 3 IT Support or your local administrator', false);
         });
         
         // Register link - optional message (can be removed if register.html exists)

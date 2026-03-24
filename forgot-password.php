@@ -391,7 +391,7 @@
 
     <div class="container">
         <div class="header">
-            <div class="logo"></div>
+            <div class="logo">📝🏛️</div>
             <h1>LGU 3</h1>
             <h2>Local Product & Export Development</h2>
             <div class="republic">✧ OFFICIAL REGISTRATION ✧</div>
@@ -466,6 +466,10 @@
                     Already have an account? <a href="index.php">Sign in here</a>
                 </div>
             </form>
+        </div>
+
+        <div class="footer">
+            LGU 3 - Local Product & Export Development Office
         </div>
     </div>
 
