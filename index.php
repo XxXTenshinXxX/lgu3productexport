@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tl">
 <head>
@@ -249,15 +250,15 @@
         <div class="form-body">
             <div id="messageBox" class="message"></div>
 
-            <form id="loginForm">
+            <form method="POST" action="action/login_process.php" id="loginForm">
                 <div class="input-group">
                     <label>USERNAME / EMAIL</label>
-                    <input type="text" id="username" placeholder="Enter username or email" autocomplete="off">
+                    <input type="text" id="username" name="username" placeholder="Enter username or email" autocomplete="off">
                 </div>
 
                 <div class="input-group">
                     <label>PASSWORD</label>
-                    <input type="password" id="password" placeholder="Enter password">
+                    <input type="password" id="password" name="password" placeholder="Enter password">
                 </div>
 
                 <div class="options">

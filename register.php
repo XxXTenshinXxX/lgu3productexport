@@ -1,3 +1,25 @@
+<?php
+// api/register.php - REST API endpoint for registration
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
+require_once 'config/db.php';
+require_once 'action/register_process.php';
+
+$database = new Database();
+$db = $database->getConnection();
+$registration = new Registration($db);
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $result = $registration->registerUser($data);
+    echo json_encode($result);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tl">
 <head>
@@ -386,7 +408,7 @@
 </head>
 <body>
     <div class="gov-bar">
-        REPUBLIC OF THE PHILIPPINES | Local Government Unit
+        REPUBLIC OF THE PHILIPPINES | Local Government Unit 3: Local Product & Export Development
     </div>
 
     <div class="container">
@@ -400,16 +422,16 @@
         <div class="form-body">
             <div id="messageBox" class="message"></div>
 
-            <form id="registerForm">
+            <form method="POST" action="action/register_process.php">
                 <!-- Row 1: First Name and Last Name -->
                 <div class="form-row">
                     <div class="input-group">
                         <label>FIRST NAME <span class="required">*</span></label>
-                        <input type="text" id="firstName" placeholder="Enter first name">
+                        <input type="text" id="firstName" name="first_name" placeholder="Enter first name">
                     </div>
                     <div class="input-group">
                         <label>LAST NAME <span class="required">*</span></label>
-                        <input type="text" id="lastName" placeholder="Enter last name">
+                        <input type="text" id="lastName" name="last_name" placeholder="Enter last name">
                     </div>
                 </div>
 
@@ -417,11 +439,11 @@
                 <div class="form-row">
                     <div class="input-group">
                         <label>EMAIL ADDRESS <span class="required">*</span></label>
-                        <input type="email" id="email" placeholder="Enter email address">
+                        <input type="email" id="email" name="email" placeholder="Enter email address">
                     </div>
                     <div class="input-group">
                         <label>CONTACT NUMBER</label>
-                        <input type="tel" id="contact" placeholder="e.g., 09123456789">
+                        <input type="tel" id="contact" name="contact_number" placeholder="e.g., 09123456789">
                     </div>
                 </div>
 
@@ -429,11 +451,11 @@
                 <div class="form-row">
                     <div class="input-group">
                         <label>OFFICE / AGENCY / BUSINESS</label>
-                        <input type="text" id="organization" placeholder="Enter office, agency, or business name">
+                        <input type="text" id="organization" name="organization" placeholder="Enter office, agency, or business name">
                     </div>
                     <div class="input-group">
                         <label>USERNAME <span class="required">*</span></label>
-                        <input type="text" id="username" placeholder="Choose a username">
+                        <input type="text" id="username" name="username" placeholder="Choose a username">
                     </div>
                 </div>
 
@@ -441,12 +463,12 @@
                 <div class="form-row">
                     <div class="input-group">
                         <label>PASSWORD <span class="required">*</span></label>
-                        <input type="password" id="password" placeholder="Create a password">
+                        <input type="password" id="password" name="password" placeholder="Create a password">
                         <div class="password-hint">Minimum 6 characters</div>
                     </div>
                     <div class="input-group">
                         <label>CONFIRM PASSWORD <span class="required">*</span></label>
-                        <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password">
                     </div>
                 </div>
 
